@@ -201,15 +201,3 @@ def run(cell_type, trials=3, units_list=None, layer_list=None, epochs=4):
 gru_results = run("GRU", trials=3, epochs=10)
 mgu_results = run("MGU", trials=3, epochs=10)
 all_results = {**gru_results, **mgu_results}
-
-#plot
-plt.figure(figsize=(12, 8))
-for i, (name, r) in enumerate(all_results.items(), 1):
-    plt.subplot(2, 3, i)
-    plt.plot(r["train"], label="train")
-    plt.plot(r["test"], label="test")
-    plt.title(name)
-    plt.ylim(0, 1)
-    plt.legend()
-plt.tight_layout()
-plt.show()
